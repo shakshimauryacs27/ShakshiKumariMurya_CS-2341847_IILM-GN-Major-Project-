@@ -1,3 +1,6 @@
+import dns from 'dns';
+dns.setDefaultResultOrder('ipv4first');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
@@ -7,11 +10,12 @@ import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 // App Config
 const app = express();
 const port = process.env.PORT || 3000;
-
+console.log("URI:", process.env.MONGODB_URI);
 // Connect DB
 connectDB();
 
