@@ -15,4 +15,10 @@ services:
       - "80:80"
     depends_on:
       - backend
-     
+      
+  admin:
+    build: ./admin
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend   
