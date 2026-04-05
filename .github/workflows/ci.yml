@@ -23,7 +23,7 @@ jobs:
       - name: Build frontend image
         run: |
           docker build \
-            --build-arg VITE_API_URL=${{ secrets.VITE_API_URL }} \
+            --build-arg VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }} \
             -t shakshi05/frontend:v1 ./frontend
 
       - name: Push frontend image
@@ -38,7 +38,10 @@ jobs:
 
      
       - name: Build admin image
-        run: docker build -t shakshi05/admin:v1 ./admin
+        run: |
+          docker build \
+            --build-arg VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }} \
+            -t shakshi05/admin:v1 ./admin
 
       - name: Push admin image
         run: docker push shakshi05/admin:v1
