@@ -15,5 +15,6 @@ spec:
       containers:
       - name: admin
         image: shakshi05/admin:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
