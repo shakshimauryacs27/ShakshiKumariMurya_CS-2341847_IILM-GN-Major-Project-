@@ -23,6 +23,7 @@ jobs:
         run: |
           cd backend
           npm install
+          NODE_ENV=test \
           STRIPE_SECRET_KEY=dummy_key \
           MONGODB_URI=dummy \
           JWT_SECRET=dummy \

@@ -17,7 +17,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 console.log("URI:", process.env.MONGODB_URI);
 // Connect DB
-connectDB();
+if (process.env.NODE_ENV !== "test") {
+  connectDB();
+}
+
 
 // Connect Cloudinary
 connectCloudinary();
