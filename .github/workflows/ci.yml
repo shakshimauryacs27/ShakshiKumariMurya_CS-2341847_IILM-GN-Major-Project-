@@ -76,16 +76,16 @@ jobs:
         with:
           image-ref: shakshi05/admin:v1
 
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ShakshiKumariMurya_CS-2341847_IILM-GN-Major-Project-
-            git pull
-            kubectl apply -f k8s/
-            kubectl rollout restart deployment frontend
-            kubectl rollout restart deployment backend
-            kubectl rollout restart deployment admin
+   #   - name: Deploy to EC2
+   #    uses: appleboy/ssh-action@v0.1.6
+   #     with:
+   #       host: ${{ secrets.EC2_HOST }}
+   #       username: ${{ secrets.EC2_USER }}
+   #       key: ${{ secrets.EC2_SSH_KEY }}
+   #       script: |
+   #         cd ShakshiKumariMurya_CS-2341847_IILM-GN-Major-Project-
+   #         git pull
+   #         kubectl apply -f k8s/
+   #         kubectl rollout restart deployment frontend
+   #         kubectl rollout restart deployment backend
+   #         kubectl rollout restart deployment admin
