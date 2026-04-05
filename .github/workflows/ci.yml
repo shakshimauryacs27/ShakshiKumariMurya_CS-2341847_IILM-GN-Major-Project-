@@ -23,6 +23,9 @@ jobs:
         run: |
           cd backend
           npm install
+          STRIPE_SECRET_KEY=dummy_key \
+          MONGODB_URI=dummy \
+          JWT_SECRET=dummy \
           npm test
       
       - name: Run frontend tests
