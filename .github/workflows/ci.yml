@@ -21,7 +21,10 @@ jobs:
 
       
       - name: Build frontend image
-        run: docker build -t shakshi05/frontend:v1 ./frontend
+        run: |
+          docker build \
+            --build-arg VITE_API_URL=${{ secrets.VITE_API_URL }} \
+            -t shakshi05/frontend:v1 ./frontend
 
       - name: Push frontend image
         run: docker push shakshi05/frontend:v1
