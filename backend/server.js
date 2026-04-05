@@ -39,7 +39,10 @@ app.get("/", (req, res) => {
   res.send("API WORKING");
 });
 
+if (process.env.NODE_ENV !== "test") {
+  
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server started at port ${port}`);
 });
+}
 export default app;
